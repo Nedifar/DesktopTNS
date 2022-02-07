@@ -1,0 +1,80 @@
+﻿<Window x:Class="Desktop_TNS.Models.AddBid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop_TNS.Models"
+        mc:Ignorable="d"
+        Title="AddBid" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Номер заявки"/>
+                <TextBox Text="{Binding bidNumber}" Width="120"/>
+            </StackPanel >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Дата создания"/>
+                <TextBox Text="{Binding dateCreated}" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Лицевой счет"/>
+                <TextBox Text="{Binding personalAcc}" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Услуга"/>
+                <ComboBox x:Name="gg" SelectedItem="{Binding Service}" DisplayMemberPath="Name" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Вид услуги"/>
+                <ComboBox Text="{Binding ServiceView}" Width="120">
+                    Подключение
+                    Управление договором/контактными данными
+                    Управление тарифом/услугой
+                    Диагностика и настройка оборудования/подключения
+                    Оплата услуг
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Номер заявки"/>
+                <ComboBox Text="{Binding ServiceType}" Width="120">
+                    <TextBlock>Подключение услуг с новой инфраструктурой</TextBlock>
+                    <TextBlock>Подключение услуг на существующей инфраструктуре</TextBlock>
+                    <TextBlock>Изменение условий договора</TextBlock>
+                    <TextBlock>Включение в договор дополнительной услуги</TextBlock>
+                    <TextBlock>Изменение контактных данных</TextBlock>
+                    <TextBlock>Изменение тарифа</TextBlock>
+                    <TextBlock>Изменение адреса предоставления услуг</TextBlock>
+                    <TextBlock>Отключение услуги</TextBlock>
+                    <TextBlock>Приостановка предоставления услуги</TextBlock>
+                    <TextBlock>Нет доступа к услуге</TextBlock>
+                    <TextBlock>Разрыв соединения</TextBlock>
+                    <TextBlock>Низкая скорость соединения</TextBlock>
+                    <TextBlock>Выписка по платежам</TextBlock>
+                    <TextBlock>Информация о платежах</TextBlock>
+                    <TextBlock>Получение квитанции на оплату услуги</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Номер заявки"/>
+                <TextBox Text="{Binding Status}" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Тип оборудывания клиента"/>
+                <TextBox Text="{Binding EquipmentType}" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Тип проблемы"/>
+                <TextBox Text="{Binding ProblemType}" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Описание проблемы"/>
+                <TextBox Text="{Binding Problem}" Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Описание проблемы"/>
+                <TextBox Text="{Binding dateClosed}" Width="120"/>
+            </StackPanel>
+            <Button Content="Проверить" Click="clTry"/>
+        </StackPanel>
+    </Grid>
+</Window>

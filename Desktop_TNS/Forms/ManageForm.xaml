@@ -1,0 +1,76 @@
+﻿<Page x:Class="Desktop_TNS.Forms.ManageForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Desktop_TNS.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageForm">
+
+    <Grid>
+        <StackPanel>
+        <StackPanel Height="300" Orientation="Horizontal" HorizontalAlignment="Center">
+                <DataGrid x:Name="dgMagistral" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Name">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="1">
+                                    <TextBlock Text="{Binding Equipment.Name}" Background="AliceBlue">
+                                        
+                                    </TextBlock>
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Equipment.working}" Value="false">
+                                                        <Setter Property="BorderBrush" Value="Red"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+            </DataGrid>
+                <DataGrid x:Name="dgNetwork" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Equipment.Name}">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Equipment.working}" Value="false">
+                                            <Setter Property="TextBlock.Background" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="dgAbonte" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Equipment.Name}">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Equipment.working}" Value="false">
+                                            <Setter Property="TextBlock.Background" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Magist" Click="clka"/>
+                <Button Content="Network"/>
+                <Button Content="Abonte"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

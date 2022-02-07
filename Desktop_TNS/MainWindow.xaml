@@ -1,0 +1,84 @@
+﻿<Window x:Class="Desktop_TNS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop_TNS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <Style x:Key="btS" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=col1, Path=Width}" Value="32*">
+                    <Setter Property="Width" Value="40"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="imS" TargetType="{x:Type Image}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=col1, Path=Width}" Value="47*">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32*" x:Name="col1" >
+                
+            </ColumnDefinition>
+            <ColumnDefinition Width="217*" x:Name="col2"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="10">
+            <Image Source="Resources/logo.jpg" />
+            <Button Style="{StaticResource btS}" Height="35" x:Name="tnAbonent" Click="clAbo">
+                <StackPanel Orientation="Horizontal">
+                    <Image Style="{StaticResource imS}" Margin="0 0 5 0" Source="Resources/Абоненты.png" LostFocus="ls"/>
+                    <TextBlock Text="Абоненты"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource btS}" Height="35" Margin="0 10" x:Name="tnManage" Click="clMAnage">
+                <StackPanel Orientation="Horizontal" >
+                    <Image Style="{StaticResource imS}" Margin="0 0 0 0" Source="Resources/Управление обрудованием.jpg" />
+                    <TextBlock Text="Управление оборудыванием" Width="100" TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource btS}" Height="35" x:Name="tnActives" Click="clActives">
+                <StackPanel Orientation="Horizontal">
+                    <Image Style="{StaticResource imS}" Margin="0 0 5 0" Source="Resources/Активы.png" />
+                    <TextBlock Text="Активы"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource btS}" Height="35" Margin="0 10" x:Name="tnBiling" Click="clBiling">
+                <StackPanel Orientation="Horizontal">
+                    <Image Style="{StaticResource imS}" Margin="0 0 5 0" Source="Resources/Биллинг.jpg" />
+                    <TextBlock Text="Биллинг"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource btS}" Height="35" x:Name="tnSupport" Click="clSupport">
+                <StackPanel Orientation="Horizontal">
+                    <Image Style="{StaticResource imS}" Margin="0 0 5 0" Source="Resources/Поддержка пользователей.jpg" />
+                    <TextBlock Text="Поддержка пользователей" TextWrapping="Wrap" Width="100" TextAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource btS}" Height="35" Margin="0 10" x:Name="tnCRM" Click="clCRM">
+                <StackPanel Orientation="Horizontal" >
+                    <Image Style="{StaticResource imS}" Margin="0 0 5 0" Source="Resources/CRM.png" />
+                    <TextBlock Text="CRM"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Column="1" PreviewMouseLeftButtonDown="Grid_MouseEnters">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="131*"/>
+                <RowDefinition Height="438*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="MainText" Text="Абоненты ТНС" FontSize="30" FontWeight="DemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <ComboBox x:Name="cbUsers" SelectedIndex="0" DisplayMemberPath="lastName" SelectionChanged="selChang" Width="120" Height="20" Margin="10"/>
+                <Image Width="50" Height="50" x:Name="img"/>
+            </StackPanel>
+            <Frame x:Name="frame" Grid.Row="1" Margin="10"/>
+        </Grid>
+    </Grid>
+</Window>
